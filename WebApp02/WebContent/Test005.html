@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Test005.html</title>
+
+<style type="text/css">
+
+	/* 작성 순서에 따라 적용이 달라짐 check~!!! */
+	
+	p i {color: red;}
+	/* 스타일의 적용 대상은 『i』 단, 상위에 『p』가 존재하는 『i』만... */
+	
+	p>i {color: blue; font-size: 20pt;}
+	/* 스타일의 적용 대상은 『i』 단, 부모가 『p』인 『i』만... */
+	
+	span {font-size: 30pt;}
+	
+	p+span {color: orange;}
+	/* 스타일의 적용 대상은 『span』 단, 『p』와 인접한 『span』만... */
+
+</style>
+
 </head>
 <body>
 
