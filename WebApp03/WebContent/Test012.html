@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test012.html</title>
+
+<script type="text/javascript">
+
+	message = "<h1>Hello~!!!</h1>";
+	document.write(message);
+	
+	alert(message); // 구문상 document.write가 먼저 있으나 alert 먼저 작동.
+	
+</script>
+
+<script type="text/javascript" src="js/alertTest.js"></script> <!-- 외부 참조 / alert가 총 두 번 작동 -->
+<!-- 외부 참조한 js 파일에서도 message 변수가 보인다. -->
+
+<script type="text/javascript">
+
+	// Date 내장 객체 : 현재 시스템의 날짜와 시간
+	// var dt = Date().toString(); 한 것과 같다.
+	var dt = String(Date()); // 첫 글자 대문자 → 자바스크립트 내장 객체. 생성자 형태
+	document.write(dt);	// Mon Apr 04 2022 14:36:01 GMT+0900 (한국 표준시)
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

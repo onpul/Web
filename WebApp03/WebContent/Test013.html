@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test013</title>
+
+<script type="text/javascript">
+
+	/* 이벤트 등록 방법 ② */
+	document.onload = windowOnload(); /* body 태그보다 앞서서. 문서 자체가 읽혀질(로딩될) 때 호출. */
+	
+	function windowOnload()
+	{
+		alert("경고창~!!!");
+	}
+
+</script>
+
+</head>
+
+<!-- 이벤트 등록 방법 ① -->
+<!-- <body onload="windowOnload()"> --> <!-- body 태그를 읽어들일 때 → windowOnload() 함수 호출 -->
+<body>
+
+<h1>이호석</h1>
+<h2>배부르다~!!!</h2>
+<h2>졸리다~!!!</h2>
+
+</body>
+</html>
