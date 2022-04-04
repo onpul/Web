@@ -81,6 +81,38 @@
 		var result = parseInt(a) + parseInt(b);
 		document.getElementById("txtResult").value = result;
 	}
+	
+	// 수업 풀이 함수
+	function actionBtnResult()
+	{
+		// 테스트
+		//alert("함수 호출 확인~!!!");
+		
+		var num1 = document.getElementById("txtNumber01").value;
+		var num2 = document.getElementById("txtNumber02").value;
+		
+		// 확인
+		//alert(num1);
+		
+		//var result = num1 + num2;						//-- 문자열 결합
+		//var result = parseInt(num1 + num2)			//-- 문자열 결합된 결과물을 정수형태로 변환
+		//var result = parseInt(num1) + parseInt(num2);
+		//                     "123"             "123"
+		
+		// Number() // 대문자니까 함수이다. 자바스크립트의 내장 객체이다. 생성자라고 받아들이면 된다. 
+		var result = Number(num1) + Number(num2);
+		
+		// 확인
+		//alert(result);
+		
+		document.getElementById("txtResult").value = result;
+		
+		// 위의 처리 내용과 같은 결과
+		/*
+		document.getElementById("txtResult").value = 
+		parseInt(document.getElementById("txtNumber01").value) + parseInt(document.getElementById("txtNumber02").value)
+		*/
+	}
 
 </script>
 
@@ -106,7 +138,7 @@
 	<input type="text" class="numberBox" id="txtNumber01">
 	+
 	<input type="text" class="numberBox" id="txtNumber02">
-	<input type="button" value=" = " class="btn" id="btnResult" onclick="add()">
+	<input type="button" value=" = " class="btn" id="btnResult" onclick="actionBtnResult()">
 	<input type="text" class="numberBox" id="txtResult" disabled="disabled">
 </div>
 
