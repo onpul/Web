@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test021.html</title>
+
+<style>
+	*
+	{
+		font-family: 나눔고딕코딩;
+		font-weight: bold;
+		font-size: 20px;
+	}
+	
+	input
+	{
+		margin-bottom: 5px;
+		color: orange;
+		border-radius: 5px;
+	}
+	
+	#btn
+	{
+		border: 3px solid gray;
+		border-radius: 10px;
+	}
+	
+	ul 
+	{ 
+		padding: 0;
+		list-style: none;
+		display: flex;
+		align-items: baseline;
+	}
+	
+	li
+	{
+		width: 240px;
+		margin-right: 2px;
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	function actionMax()
+	{
+		document.getElementById("result").value = "";
+		document.getElementById("max").value = "";
+		
+		str = document.getElementById("input").value;
+		
+		var arr = str.split(" ");
+		
+		var result = "";
+		
+		for (var i = 0; i < arr.length; i++)
+		{
+			result += arr[i] + " ";
+		}
+		
+		document.getElementById("result").value += result;
+		
+		var max = Number(arr[0]);
+		
+		for (var i = 1; i < arr.length; i++)
+		{
+			if (Number(arr[i]) > max)
+			{
+				max = Number(arr[i]);
+			}
+		}
+		
+		/* alert("arr[0] = " + arr[0]);
+		alert("arr[1] = " + arr[1]);
+		alert("arr[2] = " + arr[2]);
+		alert("arr[3] = " + arr[3]);
+		alert("arr[4] = " + arr[4]);
+		
+		alert("arr.length = " + arr.length);
+		alert("max =  " + max); */
+		document.getElementById("max").value = max;
+	}
+	
+</script>
+
+<script type="text/javascript">
+/* 수업 풀이 */
+
+	function actionPerformed()
+	{
+		// 확인
+		//alert("함수 호출 확인~!!!");
+		
+		// 입력값을 활용하여 자바스크립트 배열 구성
+		var tempStr = document.getElementById("txt01").value;			// 10 20 30 40 50
+		var arr = tempStr.split(" "); 									// 공백으로 구분하여 구성된 배열 반환
+		//-- var arr = [10, 20, 30, 40, 50];
+		
+		// 배열의 전체 요소 출력
+		//document.getElementById("txt02").value = arr;
+		
+		var allStr = "";
+		for (var n=0; n<arr.length; n++)
+			allStr += arr[n] + " ";
+		
+		document.getElementById("txt02").value = allStr;
+		
+		// 가장 큰 수 얻어내기
+		var max = Number(arr[0]);
+		for (var n=1; n<arr.length; n++)
+		{
+			if (max < Number(arr[n]))
+				max = Number(arr[n]);
+		}
+		
+		document.getElementById("txt03").value = max;
+	}
+
+</script>
+
+</head>
+<body>
+
+<!-- 
+	사용자로부터 임의의 정수를 임의의 갯수만큼 입력받고, 
+	그 내용으로 배열을 구성하여
+	구성한 정수들 중 가장 큰 수를 출력해 줄 수 있는 페이지를 구현한다.
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃
+	------------------------------------------------------------------
+	데이터 입력(공백 구분)	[ 21 86 285 43 7 ]
+	
+			< 결과 확인 >
+			
+	- 전체 출력 [ 21 86 285 43 7 ]
+	- 가장 큰 수 [ 285 ]
+	------------------------------------------------------------------
+-->
+
+<div>
+	<ul>
+		<li>데이터 입력(공백 구분)</li>
+		<li><input type="text" id="input"></li>
+	</ul>
+	<input type="button" value="결과 확인" id="btn" onclick="actionMax()">
+	<ul>
+		<li>- 전체 출력</li>
+		<li><input type="text" disabled="disabled" id="result"></li>
+	</ul>
+	<ul>
+		<li>- 가장 큰 수</li>
+		<li><input type="text" disabled="disabled" id="max"></li>
+	</ul>
+</div>
+
+</body>
+</html>

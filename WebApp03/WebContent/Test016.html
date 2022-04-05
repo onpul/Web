@@ -53,6 +53,7 @@
 
 <script type="text/javascript">
 
+// 내가 만든 함수
 function add()
 {
 	document.getElementById("result").value = 
@@ -77,7 +78,69 @@ function division()
 	parseInt(document.getElementById("num1").value) / parseInt(document.getElementById("num2").value)
 }
 
+// 수업 풀이 함수
+	/*
+	function test1()
+	{
+		alert("덧셈 연산 수행");
+	}
+	
+	function test2()
+	{
+		alert("뺄셈 연산 수행");
+	}
+	
+	function test3()
+	{
+		alert("곱셈 연산 수행");
+	}
+	
+	function test4()
+	{
+		alert("나눗셈 연산 수행");
+	}
+	*/
+	
+	/*
+	function test(num)
+	{
+		alert(num);
+	}
+	*/
 
+	function test(obj)
+	{
+		//alert(obj);
+		//alert(obj.value);
+		
+		var vNum1 = document.getElementById("num1").value;
+		var vNum2 = document.getElementById("num2").value;
+		var vResult = 0;
+		
+		if (obj.value == "더하기")
+		{
+			//alert("덧셈 연산 수행");
+			vResult = parseInt(vNum1) + parseInt(vNum2);
+		}
+		else if (obj.value == "빼기")
+		{
+			//alert("뺄셈 연산 수행");
+			vResult = parseInt(vNum1) - parseInt(vNum2);
+		}
+		else if (obj.value == "곱하기" )
+		{
+			//alert("곱셈 연산 수행");
+			vResult = parseInt(vNum1) * parseInt(vNum2);
+		}
+		else if (obj.value == "나누기") 
+		{
+			//alert("나눗셈 연산 수행");
+			vResult = parseInt(vNum1) / parseInt(vNum2);
+		}
+		
+		document.getElementById("result").value = vResult;
+	}
+	
 </script>
 
 </head>
@@ -100,10 +163,21 @@ function division()
 		정수 2 <input type="text" id="num2" class="txtNum">
 		<br><br>
 		
-		<input type="button" class="btn" id="cal" value="+" onclick="add()">
-		<input type="button" class="btn" id="cal" value="-" onclick="subtract()">
-		<input type="button" class="btn" id="cal" value="*" onclick="multiply()">
-		<input type="button" class="btn" id="cal" value="/" onclick="division()">
+		<!-- <input type="button" class="btn" id="cal" value="더하기" onclick="test1()"> -->
+		<!-- <input type="button" class="btn" id="cal" value="더하기" onclick="test(1)"> -->
+		<input type="button" class="btn" id="cal" value="더하기" onclick="test(this)">
+		
+		<!-- <input type="button" class="btn" id="cal" value="빼기" onclick="test2()"> -->
+		<!-- <input type="button" class="btn" id="cal" value="빼기" onclick="test(2)"> -->
+		<input type="button" class="btn" id="cal" value="빼기" onclick="test(this)">
+		
+		<!-- <input type="button" class="btn" id="cal" value="곱하기" onclick="test3()"> -->
+		<!-- <input type="button" class="btn" id="cal" value="곱하기" onclick="test(3)"> -->
+		<input type="button" class="btn" id="cal" value="곱하기" onclick="test(this)">
+		
+		<!-- <input type="button" class="btn" id="cal" value="나누기" onclick="test4()"> -->
+		<!-- <input type="button" class="btn" id="cal" value="나누기" onclick="test(4)"> -->
+		<input type="button" class="btn" id="cal" value="나누기" onclick="test(this)">
 		<br><br>
 		
 		결과 <input type="text" id="result" class="txtNumResult" disabled="disabled">
