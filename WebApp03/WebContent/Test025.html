@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+
+<script type="text/javascript">
+
+	function calendar()
+	{
+		//alert("함수 호출");
+		
+	    // 년, 월 입력 받기
+	    var y = Number(document.getElementById("txtYear").value);
+	    var m = Number(document.getElementById("txtMonth").value);
+	    
+	    // 변수 선언
+	    var w = 0;	// 요일
+	    
+	    var days = [31,28,31,30,31,30,31,31,30,31,30,31]; // 각 월의 끝 날짜
+	   
+	    var total = 0;
+	    
+	 	// 입력받은 연도에 해당하는 2월의 마지막 날 계산
+		if ((y%4==0 && y%100!=0) || y%400==0) // 윤년
+		{
+			days[1] = 29;
+		}
+	 	
+		// 1년 1월 1일 ~ 입력받은 연도의 이전년도 12월 31일까지의 날 수 계산
+		for (var i = 1; i < y; i++) 
+		{
+            if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) //윤년
+            {
+                total += 366;
+            }
+            else
+                total += 365;
+        }
+		
+		//alert("total = " + total);
+		
+		// 입력받은 연도(해당연도) 1월 1일 ~ 입력한 월의 이전 월까지의 날 수 누적 연산
+		for (var i = 0; i < (m-1); i++)
+		{
+			total += days[i];
+		}
+
+		// 입력받은 월의 1일을 날 수 누적 연산
+		total += 1; 
+		
+		// 요일 확인 
+		//-- 입력받은 연의 입력받은 월의 1일이 무슨 요일인지 확인하기 위한 연산
+		w = total % 7;
+		
+		//alert("w = " + w);
+		
+		// 출력
+		// table 엘리먼트 접근
+	    var tableNode = document.getElementById("calendarTbl");
+		
+		// trNode 변수 = 이 문서에 <tr></tr>을 만들겠다
+	    var trNode = document.createElement("tr");   // <tr></tr>
+
+	    // 해당 월의 1일이 시작되기 전까지 빈 칸 
+	    for (var i = 0; i < w; i++)
+	    {
+	    	//alert("테스트");
+	    	trNode.appendChild(createTdNode(" "));
+      	}
+	    
+	    // 해당 월 날짜 채우기
+	    var d = 1;
+	    for (d = 1; d <= days[m-1]; d++)
+	    {
+	    	trNode.appendChild(createTdNode(d)); 
+	    	w+=1;
+	    	if (w == 7)  
+	        {
+	           tableNode.appendChild(trNode);
+	           trNode = document.createElement("tr");
+	           w = 0;
+	        }
+	    }
+	         
+	    tableNode.appendChild(trNode);
+	     
+	}
+	
+	function createTdNode(val)
+    {
+		var textNode = document.createTextNode(val);
+	    var tdNode = document.createElement("td");
+	    tdNode.appendChild(textNode);
+	    
+	    return tdNode;
+    }
+   
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>테이블 동적 생성으로 만년달력 그리기</h1>
+	<hr>
+</div>
+
+<div>
+	<form action="">
+		<input type="text" id="txtYear" class="txt" style="width: 60px;"> 년
+		<input type="text" id="txtMonth" class="txt" style="width: 60px;"> 월
+		<br><br>
+		
+		<button type="button" class="btn" style="width: 155px;" onclick="calendar()">만년달력 그리기</button>
+		<br><br>
+		
+		<table border="1" id="calendarTbl">
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+		</table>
+		
+	</form>
+</div>
+
+</body>
+</html>
