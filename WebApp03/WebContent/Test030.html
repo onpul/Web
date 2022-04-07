@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test030.html</title>
+
+<script type="text/javascript">
+	function choice()
+	{
+		// 라디오 객체 
+		var radioObj = document.getElementsByName("radioGroup");
+		
+		var num = 0;
+		
+		// 선택한 사이즈의 value 값 담기 (선택 가능 개수)
+		for (var i = 0; i < radioObj.length; i++)
+		{
+			if (radioObj[i].checked)
+			{
+				num = radioObj[i].value;
+				break;
+			}
+		}
+		
+		// 체크박스 객체
+		var checkObj = document.getElementsByName("checkGroup");
+		
+		// 체크 개수 파악 위한 변수 선언
+		var check = 0;
+
+		// 체크한 개수 check 변수에 더하기
+		for (var i = 0; i < checkObj.length; i++)
+		{
+			if (checkObj[i].checked)
+			{
+				check+=1;
+			}
+		}
+		
+		// 선택 가능 개수보다 많을 경우 경고창 출력
+		if (check > num)
+		{
+			alert("선택 가능한 종류의 개수를 초과하였습니다.");
+			for (var i = 0; i < checkObj.length; i++)
+			{
+				// 선택한 체크박스 해제하기
+				checkObj[i].checked = false;
+			}
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<div>
+	<h2>아이스크림 주문</h2>
+	
+	<form onclick="choice()">
+		--- 사이즈 선택 --- <br><br>
+		
+		<input type="radio" name="radioGroup" id="a1" value="1">
+		<label for="a1">싱글(1)</label>
+		<input type="radio" name="radioGroup" id="b1" value="2">
+		<label for="b1">더블(2)</label>
+		<input type="radio" name="radioGroup" id="c1" value="3">
+		<label for="c1">파인트(3)</label>
+		<input type="radio" name="radioGroup" id="d1" value="4">
+		<label for="d1">쿼터(4)</label>
+		<input type="radio" name="radioGroup" id="e1" value="5">
+		<label for="e1">패밀리(5)</label>
+		<input type="radio" name="radioGroup" id="f1" value="6">
+		<label for="f1">하프갤런(6)</label>
+		<br><br>
+		
+		--- 종류 선택 --- <br><br>
+		
+		<input type="checkbox" name="checkGroup" id="a2" value="엄마">
+		<label for="a2">엄마는외계인</label>
+		<input type="checkbox" name="checkGroup" id="b2" value="레인">
+		<label for="b2">레인보우샤베트</label>
+		<input type="checkbox" name="checkGroup" id="c2" value="민트">
+		<label for="c2">민트초코</label>
+		<input type="checkbox" name="checkGroup" id="d2" value="바람">
+		<label for="d2">바람과함께사라지다</label>
+		<br>
+		
+		<input type="checkbox" name="checkGroup" id="e2" value="뉴욕">
+		<label for="e2">뉴욕치즈케이크</label>
+		<input type="checkbox" name="checkGroup" id="f2" value="사랑">
+		<label for="f2">사랑에빠진딸기</label>
+		<input type="checkbox" name="checkGroup" id="g2" value="초코">
+		<label for="g2">초코나무숲</label>
+		<input type="checkbox" name="checkGroup" id="h2" value="봉봉">
+		<label for="h2">아몬드봉봉</label>
+		<br>
+		
+		<input type="checkbox" name="checkGroup" id="i2" value="바닐">
+		<label for="i2">바닐라</label>
+		<input type="checkbox" name="checkGroup" id="j2" value="쿠키">
+		<label for="j2">쿠키앤크림</label>
+		<input type="checkbox" name="checkGroup" id="k2" value="월넛">
+		<label for="k2">월넛</label>
+		<input type="checkbox" name="checkGroup" id="l2" value="요거">
+		<label for="l2">31요거트</label>
+	</form>
+</div>
+
+</body>
+</html>
