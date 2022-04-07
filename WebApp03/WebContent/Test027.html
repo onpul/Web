@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test027.html</title>
+<style type="text/css">
+
+	* 
+	{
+		font-family: 나눔고딕코딩;
+		font-weight: bold;
+	}
+	.box
+	{
+		border: 2px solid gray;
+		border-radius: 10px;
+		margin-top: 20px;
+		padding-bottom: 20px;
+		width: 300px;
+		text-align: center;
+	}
+	input
+	{
+		margin-bottom: 10px;
+		border: 1px solid gray;
+		border-radius: 5px;
+	}
+	input:active
+	{
+		color: orange;
+	}
+	#num
+	{
+		width: 50px;
+		text-align: center;
+	}
+	textarea 
+	{
+		text-align: center;
+		font-size: 15px;
+		resize: none;
+	}
+	
+</style>
+<script type="text/javascript">
+	function lottonum()
+	{
+		var arr = new Array(45);	
+		var arr2 = new Array(6);	// 로또 6자리
+		
+		// 배열 45칸을 일단 false로 초기화
+		for (var i = 0; i < arr.length; i++)
+		{
+			arr[i] = false;
+		}
+		
+		// 로또 6자리 뽑기
+		for (var i = 0; i < arr2.length; i++)
+		{
+			while (true)
+			{
+				var temp = parseInt(Math.random()*45)+1;
+				
+				if (arr[temp-1] == false)
+				{
+					arr[temp-1] = true;
+					arr2[i] = temp;
+					break;
+				}
+			}
+		}
+		
+		// 6자리 배열 정렬
+		for (var i = 0; i < arr2.length; i++)		// 0           1 2 3 4 5 
+		{
+			for (var j = 0; j < arr2.length; j++) 	// 0 1 2 3 4 5
+			{
+				if (Number(arr2[i]) < Number(arr2[j]))
+				{
+					var temp = arr2[i];
+					arr2[i] = arr2[j];
+					arr2[j] = temp;
+				}
+			}
+		}
+		
+		var result = "";
+		for (var i = 0; i < arr2.length; i++)
+		{
+			result += arr2[i] + " ";
+		}
+		document.getElementById("txtresult").value += result;
+		document.getElementById("txtresult").value += "\n"
+	}
+	function lotto()
+	{
+		document.getElementById("txtresult").value = "";
+		var num = document.getElementById("num").value;
+		
+		for (var i = 0; i < num; i++)
+		{
+			lottonum();
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<!--
+	로또 번호(1~45)를 중복되지 않은 정수 6개를 생성하여
+	출력해주는 페이지를 구현한다.
+	HTML, CSS, JS 를 활용한다.
+	난수 발생 함수를 활용한다.
+	번호순으로 (오름차순) 정렬하여 출력할 수 있도록 한다.
+	주문한 장 수 만큼 출력할 수 있도록 한다.
+	
+	페이지 레이아웃
+	---------------------------------------------------------------
+	로또	[	] 장		< 주문하기 >
+	
+	결과
+	--------------------------------
+	
+	
+	--------------------------------
+	---------------------------------------------------------------
+-->
+
+	<div class="box">
+		<h3>-로또 추첨기-</h3>
+		로또 <input type="text" id="num"> 장 <input type="button" value="주문하기" onclick="lotto()">
+		<h4>로또 번호 생성 결과</h4>
+		<textarea rows="10" cols="30" id="txtresult" disabled="disabled"></textarea>
+	</div>
+
+</body>
+</html>
