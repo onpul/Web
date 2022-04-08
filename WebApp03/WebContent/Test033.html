@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test033.html</title>
+
+<style type="text/css">
+	a {font-size: small;}
+</style>
+
+<script type="text/javascript">
+
+	function myAddr(addr)
+	{
+		// 확인
+		//alert("함수 호출");
+		
+		// 확인
+		//alert(addr);
+		
+		//document.getElementById("addr1").value = "1234";
+		// document는 현재 033인데, 033에는 addr1이 없음 -> 처리 안 됨
+		
+		//window.opener.document.getElementById("addr1").value = "1234";
+		window.opener.document.getElementById("addr1").value = addr;
+		
+		// IE 용
+		//window.opener.document.getElementById("txt1").innerText = addr;
+		
+		// CR, FF 용
+		window.opener.document.getElementById("txt1").innerHTML = addr;
+		
+		// 033 창 닫기
+		window.close();
+	}
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<form>
+		주소 검색
+		<input>
+		<input type="button" value="검색"><br><br>
+		
+		<!-- <a href="Test032.html">서울 마포구 서교로 1가 (1~110번지)</a><br> -->
+		<!-- <a href="myAddr()">서울 마포구 서교로 1가 (1~110번지)</a><br> --> <!-- 에러 뜸 -->
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 1가')">서울 마포구 서교로 1가 (1~110번지)</a><br> <!-- check~!!! -->
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 2가')">서울 마포구 서교로 2가 (111~123번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 3가')">서울 마포구 서교로 3가 (124~131번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 4가')">서울 마포구 서교로 4가 (132~184번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 5가')">서울 마포구 서교로 5가 (185~192번지)</a><br>
+		<a href="javascript:myAddr('04044 서울 마포구 서교로 6가')">서울 마포구 서교로 6가 (193~215번지)</a><br>
+	</form>
+</div>
+
+</body>
+</html>
