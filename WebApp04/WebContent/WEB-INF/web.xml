@@ -17,11 +17,11 @@
 		<servlet-name>Test004</servlet-name>
 		<servlet-class>com.test.Test004</servlet-class>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>Test004</servlet-name>
 		<url-pattern>/test004</url-pattern>
 	</servlet-mapping>
+	
 	
 	<servlet>
 		<servlet-name>cmj</servlet-name>
