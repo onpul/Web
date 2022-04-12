@@ -15,7 +15,7 @@
 </div>
 
 <div>
-	<form action="CheckBoxOk.jsp" method="get">
+	<form action="CheckBoxOk.jsp" method="post">
 		이름 <input type="text" name="name" class="txt">
 		<br><br>
 		
