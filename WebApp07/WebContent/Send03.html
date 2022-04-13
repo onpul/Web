@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Send03.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -36,6 +37,41 @@
 </div>
 
 <div>
+	<form action="Receive03.jsp" method="post">
+		<table classs="table">
+			<tr>
+				<th>정수1</th>
+				<th>연산자</th>
+				<th>정수2</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="num1" class="txt">
+				</td>
+				<td>
+					<select name="op">
+						<option value="+">더하기</option>
+						<option value="-">빼기</option>
+						<option value="*">곱하기</option>
+						<option value="/">누나기</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" name="num2" class="txt">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<button type="submit">결과 확인</button>
+					<button type="reset">취소</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+<!-- 
+<div>
 	<form action="Receive03.jsp" method="get">
 		정수1 <input type="text" name="su1">
 		<select name="sel">
@@ -49,7 +85,8 @@
 		<button type="submit">결과 확인</button>
 		<button type="reset">취소</button>
 	</form>
-</div>
+</div> 
+-->
 
 </body>
 </html>
