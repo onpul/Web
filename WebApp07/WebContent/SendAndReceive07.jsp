@@ -142,14 +142,12 @@
 
 <div>
 	<!-- form 의 action 속성 값 생략 → 요청 페이지 / 데이터의 수신처는 자기 자신 -->
-	<form action="" method="post">
+	<form>
 		<select id="year" name="year" onchange="formCalendar(this.form)">
-			<option>-- 선택하세요 --</option> 
 			<!-- <option value="9999">9999</option> -->
 			<%=yOptions %>
 		</select> 년
 		<select id="month" name="month" onchange="formCalendar(this.form)">
-			<option>-- 선택하세요 --</option> 
 			<option value="99">99</option> 
 			<option value="98">98</option> 
 		</select> 월
