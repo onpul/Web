@@ -1,0 +1,62 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%
+	// 이전 페이지(Send09.jsp)로부터 데이터(gugudan) 수신
+	
+	String gugudanStr = request.getParameter("gugudan");
+	int gugudan = 0;
+	String result = "";
+	
+	try
+	{
+		gugudan = Integer.parseInt(gugudanStr);
+		for (int i=1; i<=9; i++)
+		{
+			result += String.format("%d * %d = %d<br>", gugudan, i, (gugudan * i));
+		}
+	}
+	catch (Exception e)
+	{
+		System.out.println(e.toString());
+	}
+%>
+
+<%-- 
+<%
+	String danStr = request.getParameter("dan");
+	int dan = Integer.parseInt(danStr);
+%> 
+--%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Receive09.jsp</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div>
+	<h1>데이터 송수신 실습 09</h1>
+	<hr>
+</div>
+
+<div>
+	<h2>수신된 데이터 : <%=gugudanStr %></h2>
+	<%=result %>
+</div>
+
+<%--
+<div>
+	<h3><%=dan %>단</h3>
+	<hr>
+	<%
+		for(int i=1; i<=9; i++)
+		{
+	%>
+			<%=dan %> * <%=i %> = <%=dan*i %><br>	
+	<% 		
+		}	
+	%>
+</div>
+--%>
+</body>
+</html>

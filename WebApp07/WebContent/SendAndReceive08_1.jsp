@@ -43,9 +43,9 @@
 		if (i==0)
 			calbox += "<td style='color:red; background-color:#eeeeee;'>" + yoilStr[i] + "</td>";
 		else if (i==6)
-			calbox += "<td style='color:blue; background-color:#eeeeee'>" + yoilStr[i] + "</td>";
+			calbox += "<td style='color:blue; background-color:#eeeeee;'>" + yoilStr[i] + "</td>";
 		else	
-			calbox += "<td style='background-color:#eeeeee'>" + yoilStr[i] + "</td>";	
+			calbox += "<td style='background-color:#eeeeee;'>" + yoilStr[i] + "</td>";	
 	}
 	calbox += "</tr>";
 	
@@ -86,7 +86,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SendAndReceive08.jsp</title>
+<title>SendAndReceive08_1.jsp</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 
@@ -138,7 +138,8 @@
 			year-=1;
 			month = 12;
 			
-		}else if(Number(month)==13) // 월이 13일 때
+		}
+		else if(Number(month)==13) // 월이 13일 때
 		{
 			year+=1;
 			month = 1;
@@ -183,16 +184,17 @@
 </div>
 <div class=box>
 	<div>
-	<form class="calform" name="calform" action="" method="get">
-		<a href="javascript:check(-1)">◀</a>
-		<input type="text" id="year" name="year" readonly="readonly" value=<%=selectYear %>> 년 
-		<input type="text" id="month" name="month" readonly="readonly" value=<%=selectMonth %>> 월
-		<a href="javascript:check(1)">▶</a>	
-	</form>
+		<form class="calform" name="calform" action="" method="get">
+			<a href="javascript:check(-1)">◀</a>
+			<input type="text" id="year" name="year" readonly="readonly" value=<%=selectYear %>> 년 
+			<input type="text" id="month" name="month" readonly="readonly" value=<%=selectMonth %>> 월
+			<a href="javascript:check(1)">▶</a>                                                           
+		</form>
 	</div>
 	<br>
 	<div>
-	<%=calbox %>
+		<!-- 테이블 그리는 구역 -->
+		<%=calbox %>
 	</div>
 </div>
 </body>
