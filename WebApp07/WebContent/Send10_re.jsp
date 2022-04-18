@@ -17,7 +17,10 @@
 	
 	// ※ 리다이렉트 
 	// ③
-	response.sendRedirect("Receive10.jsp"); // 쪽지 전달하는 거 / 쪽지에 저걸 적어준 거.. / 상담원이 불러준 전화번호
+	//response.sendRedirect("Receive10.jsp"); // 쪽지 전달하는 거 / 쪽지에 저걸 적어준 거.. / 상담원이 불러준 전화번호
+	
+	// 문정 복습
+	response.sendRedirect("Receive10.jsp?userName="+userName);
 	
 %>
 <!DOCTYPE html>
