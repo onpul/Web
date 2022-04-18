@@ -59,6 +59,28 @@
 	button {width: 320px; height: 30px; font-family: 맑은 고딕; font-weight: bold;}
 	.errMsg {font-size: small; color: red; display: none;}
 </style>
+<script type="text/javascript">
+	function formCheck()
+	{
+		// 확인
+		//alert("확인");
+		
+		var userName = document.getElementById("userName");
+		var nameMsg = document.getElementById("nameMsg");
+		
+		nameMsg.style.display = "none";
+		
+		if (userName.value == "")
+		{
+			nameMsg.style.display = "inline";
+			userName.focus();
+			return false;
+		}
+		
+		//return false;
+		return true;
+	}
+</script>
 </head>
 <body>
 
@@ -69,7 +91,7 @@
 
 <div>
 	<p>DAO, DTO 개념 적용</p>
-	<form action="">
+	<form action="MemberInsert.jsp" method="post" onsubmit="return formCheck()">
 		<table class="table">
 			<tr>
 				<th>이름(*)</th>
