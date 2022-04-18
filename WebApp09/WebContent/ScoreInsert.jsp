@@ -14,7 +14,7 @@
 	int eng = 0;
 	int mat = 0;
 	
-	try
+	try                          
 	{
 		kor = Integer.parseInt(korStr);
 		eng = Integer.parseInt(engStr);
