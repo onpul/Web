@@ -1,11 +1,18 @@
+/*=================================================================
+	MemberScoreDTO.java
+	- 객체 전용 (데이터 보관 및 전송) → JAVA Bean
+=================================================================*/
+
 package com.test;
 
-public class ScoreDTO
+public class MemberScoreDTO
 {
-	// 주요 속성 구성
-	private String sid, name;
-	int kor, eng, mat, tot;
-	double avg;
+	// VIEW_MEMBERSCORE 조회 항목을 기준으로
+	// 프로퍼티(property) 구성
+	private String sid, name;	//-- 번호, 이름
+	private int kor, eng, mat;	//-- 국어점수, 영어점수, 수학점수
+	private int tot, rank;		//-- 총점, 석차(등수)
+	private double avg;			//-- 평균
 	
 	// getter / setter 구성
 	public String getSid()
@@ -55,6 +62,14 @@ public class ScoreDTO
 	public void setTot(int tot)
 	{
 		this.tot = tot;
+	}
+	public int getRank()
+	{
+		return rank;
+	}
+	public void setRank(int rank)
+	{
+		this.rank = rank;
 	}
 	public double getAvg()
 	{
