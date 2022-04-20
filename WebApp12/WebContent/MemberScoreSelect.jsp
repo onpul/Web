@@ -129,6 +129,7 @@
 	{
 		var res = confirm("번호:" + sid + " 이름:" + name + "\n이 회원의 성적 정보를 정말 삭제하시겠습니까?");
 		
+		// ※ name 문자열 넘기는 과정에서 따옴표 구성에 주의할 것~!!!
 		if(res)
 			window.location.href='MemberScoreDelete.jsp?sid=' + sid;
 	}

@@ -169,7 +169,7 @@ function memberScoreReset()
 		</table>
 		<br>
 		
-		<a href="javascript:memberScoreSubmit()"><button type="button">입력하기</button></a>
+		<a href="javascript:memberScoreSubmit()"><button type="button">수정하기</button></a>
 		<a href="javascript:memberScoreReset()"><button type="button">취소하기</button></a>
 		<a href="MemberScoreSelect.jsp"><button type="button">목록으로</button></a>
 		

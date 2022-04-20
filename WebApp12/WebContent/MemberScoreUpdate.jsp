@@ -36,7 +36,7 @@
 		}
 		catch(Exception e)
 		{
-			e.toString();
+			System.out.println(e.toString());
 		}
 	}
 	
