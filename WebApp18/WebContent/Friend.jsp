@@ -5,6 +5,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+	function sendIt()
+	{
+		//alert("확인");
+		var f = document.myForm;
+		var name = f.name;
+		//alert(name.value);
+		
+		if (name.value=="") // (!f.name.value)
+		{
+			alert("이름을 입력하세요.");
+			name.focus();
+			return;
+		}
+		
+		f.submit();
+	}
+</script>
 </head>
 <body>
 
@@ -13,8 +31,11 @@
 	<hr>
 </div>
 
+<!-- com.test.FriendDTO.java -->
+<!-- Friend_ok.jsp -->
+
 <div>
-	<form>
+	<form action="Friend_ok.jsp" method="post" name="myForm">
 		<table class="table">
 			<tr>
 				<th>이름(*)</th>
@@ -31,41 +52,46 @@
 			<tr>
 				<th>성별</th>
 				<td>
-					<label for="">
-						<input type="radio" name="gender" id="male" value="남자"/>
+					<label for="male">
+						남자<input type="radio" name="gender" id="male" value="남자"/>
 					</label>
-					<label for="">
-						<input type="radio" name="gender" id="female" value="여자"/>
+					<label for="female">
+						여자<input type="radio" name="gender" id="female" value="여자"/>
 					</label>
 				</td>
 			</tr>
 			<tr>
 				<th>이상형</th>
 				<td>
-					<label for="">
+					<label for="t1">
 						<input type="checkbox" name="idelType" id="t1" value="카리나">
 						카리나
 					</label>
-					<label for="">
+					<label for="t2">
 						<input type="checkbox" name="idelType" id="t2" value="수지">
 						수지
 					</label>
-					<label for="">
+					<label for="t3">
 						<input type="checkbox" name="idelType" id="t3" value="김지수">
 						김지수
 					</label>
-					<label for="">
+					<label for="t4">
 						<input type="checkbox" name="idelType" id="t4" value="유재석">
 						유재석
 					</label>
-					<label for="">
+					<label for="t5">
 						<input type="checkbox" name="idelType" id="t5" value="남주혁">
 						남주혁
 					</label>
-					<label for="">
-						<input type="checkbox" name="idelType" id="t4" value="박보검">
+					<label for="t6">
+						<input type="checkbox" name="idelType" id="t6" value="박보검">
 						박보검
 					</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button" onclick="sendIt()" class="btn" style="width: 100%; font-size: 16pt">등록</button>
 				</td>
 			</tr>
 		</table>		
