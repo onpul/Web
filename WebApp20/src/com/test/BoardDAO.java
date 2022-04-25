@@ -190,36 +190,39 @@ public class BoardDAO
 	public BoardDTO getReadData(int num)
 	{
 		BoardDTO result = null;
-		String sql = "";
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String sql = "";
 		
 		try
 		{
-			sql = "SELECT NUM, NAME, PWD, EMAIL, SUBJECT, CONTENT, IPADDR, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED FROM TBL_BOARD WHERE NUM=?";
+			sql = "SELECT NUM, NAME, PWD, EMAIL, SUBJECT "
+				+ ", CONTENT, IPADDR, HITCOUNT, CREATED "
+				+ " FROM TBL_BOARD"
+				+ " WHERE NUM=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
 			
-			rs = pstmt.executeQuery(sql);
-			
-			while(rs.next())
+			if(rs.next())
 			{
-				BoardDTO dto = new BoardDTO();
+				result = new BoardDTO();
 				
-				dto.setNum(rs.getInt("NUM"));
-				dto.setName(rs.getString("NAME"));
-				dto.setPwd(rs.getString("PWD"));
-				dto.setEmail(rs.getString("EMAIL"));
-				dto.setSubject(rs.getString("SUBJECT"));
-				dto.setContent(rs.getString("CONTENT"));
-				dto.setIpAddr(rs.getString("IPADDR"));
-				dto.setHitCount(rs.getInt("HITCOUNT"));
-				dto.setCreated(rs.getString("CREATED"));
-			}
+				result.setNum(rs.getInt("NUM"));
+				result.setName(rs.getString("NAME"));
+				result.setPwd(rs.getString("PWD"));
+				result.setEmail(rs.getString("EMAIL"));
+				result.setSubject(rs.getString("SUBJECT"));
+				result.setContent(rs.getString("CONTENT"));
+				result.setIpAddr(rs.getString("IPADDR"));
+				result.setHitCount(rs.getInt("HITCOUNT"));
+				result.setCreated(rs.getString("CREATED"));
+			}	
 			rs.close();
 			pstmt.close();
-		}
-		catch (Exception e) 
+			
+		} catch (Exception e)
 		{
 			System.out.println(e.toString());
 		}
@@ -227,4 +230,100 @@ public class BoardDAO
 		return result;
 	}
 	
+	
+	// 특정 게시물을 삭제하는 기능의 메소드
+	public int deleteData(int num)
+	{
+		int result = 0;
+		String sql = "";
+		PreparedStatement pstmt = null;
+		
+		try
+		{
+			sql = "DELETE FROM TBL_BOARD WHERE NUM=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			result = pstmt.executeUpdate();
+			
+			pstmt.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
+		return result;
+	}
+	
+	
+	// 특정 게시물을 수정하는 기능의 메소드
+	public int updateData(BoardDTO dto) throws SQLException
+	{
+		int result = 0;
+		
+		String sql = "UPDATE TBL_BOARD SET NAME=?, PWD=?, EMAIL=?, SUBJECT=?, CONTENT=? WHERE NUM=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, dto.getName());
+		pstmt.setString(2, dto.getPwd());
+		pstmt.setString(3, dto.getEmail());
+		pstmt.setString(4, dto.getSubject());
+		pstmt.setString(5, dto.getContent());
+		pstmt.setInt(6, dto.getNum());
+		
+		result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		
+		return result;
+	}
+	
+	
+	// 특정 게시물의 이전 게시물 번호 얻어내는 메소드 정의
+	// 이전 게시물이 존재하지 않을 결우 -1 반환
+	public int getBeforeNum(int num) throws SQLException
+	{
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		sql = "SELECT NVL(MAX(NUM), -1) AS BEFORENUM FROM TBL_BOARD WHERE NUM < ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		
+		rs = pstmt.executeQuery();
+		
+		while (rs.next())
+			result = rs.getInt(1);
+		
+		rs.close();
+		pstmt.close();
+		
+		return result;
+	}
+	
+	
+	// 특정 게시물의 다음 게시물 번호 얻어내는 메소드 정의
+	// 다음 게시물이 존재하지 않을 경우 -1 반환
+	public int getNextNum(int num) throws SQLException
+	{
+		int result = 0;
+		
+		String sql = "SELECT NVL(MIN(NUM), -1) AS NEXTNUM FROM TBL_BOARD WHERE NUM > ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		
+		// select → executeQuery() → ResultSet 반환
+		ResultSet rs = pstmt.executeQuery();
+		
+		while (rs.next())
+			result = rs.getInt(1);
+		
+		rs.close();
+		pstmt.close();
+		
+		return result;
+	}
 }
