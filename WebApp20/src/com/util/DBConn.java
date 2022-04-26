@@ -12,7 +12,8 @@ public class DBConn
 	{
 		if (dbConn == null)
 		{
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@211.238.142.164:1521:xe";
+			//                              --------- 211.238.142.164 집에서 바꾸기!!!
 			String user = "scott";
 			String pwd = "tiger";
 			

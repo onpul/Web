@@ -1,7 +1,63 @@
+<%@page import="com.test.BoardDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.util.MyUtil"%>
+<%@page import="com.test.BoardDAO"%>
+<%@page import="com.util.DBConn"%>
+<%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
+%>
+<%
+	Connection conn = DBConn.getConnection();
+	BoardDAO dao = new BoardDAO(conn);
+	MyUtil myUtil = new MyUtil();
+	
+	
+	// 현재 표시되어야 하는 페이지(기본)
+	int currentPage = 1;
+	
+	// 전체 데이터 갯수 구하기
+	int dataCount = dao.getDataCount();
+	
+	// 전체 페이지를 기준으로 총 페이지 수 계산
+	int numPerPage = 10;	//-- 한 페이지에 표시할 데이터 갯수
+	int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+	
+	// 전체 페이지 수보다 표시할 페이지가 큰 경우
+	// 표시할 페이지를 전체 페이지로 처리
+	if (currentPage > totalPage)
+		currentPage = totalPage;
+	
+	// 데이터베이스에서 가져올 시작과 끝 위치
+	int start = (currentPage-1) * numPerPage + 1;
+	int end = currentPage * numPerPage;
+	
+	// 실제 리스트 가져오기
+	List<BoardDTO> lists = dao.getLists(start, end);
+	
+	// 페이징 처리
+	String param = "";
+	
+	String listUrl = "List.jsp" + param;
+	String pageIndexList = myUtil.pageIndexList(currentPage, totalPage, listUrl);
+	
+	// 글 내용 보기 주소
+	String articleUrl = cp + "/Article.jsp";
+	
+	if (param.equals(""))
+	{
+		articleUrl = articleUrl + "?pageNum=" + currentPage;
+	}
+	else
+	{
+		articleUrl = articleUrl + param + "&pageNum=" + currentPage;
+	}
+	
+	DBConn.close();
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -60,17 +116,55 @@
 		</div><!-- #title -->
 	
 		<div id="lists">
+			<!-- 
 			<dl>
 				<dd class="num">1</dd>
 				<dd class="subject">안녕하세요</dd>
 				<dd class="name">김정용</dd>
 				<dd class="created">2022-04-25</dd>
 				<dd class="hitCount">0</dd>
-			</dl>
+			</dl> 
+			-->
+			
+			<%
+			for (BoardDTO dto : lists)
+			{
+			%>
+			<dl>
+				<dd class="num"><%=dto.getNum() %></dd>
+				<dd class="subject"><%=dto.getSubject() %></dd>
+				<dd class="name"><%=dto.getName() %></dd>
+				<dd class="created"><%=dto.getCreated() %></dd>
+				<dd class="hitCount"><%=dto.getHitCount() %></dd>
+			</dl> 
+			<%
+			}
+			%>
+			
 		</div>
 		
 		<div id="footer">
-			<p>1 Prev 21 22 23 24 25 26 27 28 29 30 Next 42</p>
+			
+			<!-- <p>1 Prev 21 22 23 24 25 26 27 28 29 30 Next 42</p> -->
+			<!-- <p>등록된 게시물이 존재하지 않습니다.</p> -->
+			
+			<p>
+			<%
+			if (dataCount != 0)
+			{
+			%>
+				<%=pageIndexList %>
+			<%
+			}
+			else
+			{
+			%>
+				등록된 게시물이 존재하지 않습니다.
+			<%
+			}
+			%>
+			</p>
+			
 		</div><!-- #footer -->
 		
 	</div><!-- #bbsList_list -->
