@@ -10,38 +10,59 @@
 	String cp = request.getContextPath();
 %>
 <%
+	// 이전 페이지로부터 넘어온 게시물 번호 수신
+	String strNum = request.getParameter("num");
+	int num = 0;
+	if (strNum != null)
+		num = Integer.parseInt(strNum);
+	
+	// 이전 페이지로부터 넘어온 페이지 번호 수신
+	String pageNum = request.getParameter("pageNum");
+	int currentPage = 1;
+	if (pageNum != null)
+		currentPage = Integer.parseInt(pageNum);
+	
+	// 이전 페이지로부터 검색 키와 검색 값 수신
+	String searchKey = request.getParameter("searhKey");
+	String searchValue = request.getParameter("searchValue");
+	
+	
+	
+	
+	
+	
+
 	Connection conn = DBConn.getConnection();
 	BoardDAO dao = new BoardDAO(conn);
 	MyUtil myUtil = new MyUtil();
 	
-	
 	// 현재 표시되어야 하는 페이지(기본)
-	int currentPage = 1;
+	//int currentPage = 1;
 	
 	// 전체 데이터 갯수 구하기
-	int dataCount = dao.getDataCount();
+	//int dataCount = dao.getDataCount();
 	
 	// 전체 페이지를 기준으로 총 페이지 수 계산
 	int numPerPage = 10;	//-- 한 페이지에 표시할 데이터 갯수
-	int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+	//int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 	
 	// 전체 페이지 수보다 표시할 페이지가 큰 경우
 	// 표시할 페이지를 전체 페이지로 처리
-	if (currentPage > totalPage)
-		currentPage = totalPage;
+	//if (currentPage > totalPage)
+	//	currentPage = totalPage;
 	
 	// 데이터베이스에서 가져올 시작과 끝 위치
 	int start = (currentPage-1) * numPerPage + 1;
 	int end = currentPage * numPerPage;
 	
 	// 실제 리스트 가져오기
-	List<BoardDTO> lists = dao.getLists(start, end);
+	//List<BoardDTO> lists = dao.getLists(start, end);
 	
 	// 페이징 처리
 	String param = "";
 	
 	String listUrl = "List.jsp" + param;
-	String pageIndexList = myUtil.pageIndexList(currentPage, totalPage, listUrl);
+	//String pageIndexList = myUtil.pageIndexList(currentPage, totalPage, listUrl);
 	
 	// 글 내용 보기 주소
 	String articleUrl = cp + "/Article.jsp";
@@ -56,8 +77,6 @@
 	}
 	
 	DBConn.close();
-	
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -126,20 +145,22 @@
 			</dl> 
 			-->
 			
-			<%
+			<%-- <%
 			for (BoardDTO dto : lists)
 			{
 			%>
 			<dl>
 				<dd class="num"><%=dto.getNum() %></dd>
-				<dd class="subject"><%=dto.getSubject() %></dd>
+				<dd class="subject"> 
+					<a href="<%=articleUrl %>&num=<%=dto.getNum()%>"><%=dto.getSubject() %></a>
+				</dd>
 				<dd class="name"><%=dto.getName() %></dd>
 				<dd class="created"><%=dto.getCreated() %></dd>
 				<dd class="hitCount"><%=dto.getHitCount() %></dd>
 			</dl> 
 			<%
 			}
-			%>
+			%> --%>
 			
 		</div>
 		
@@ -149,7 +170,7 @@
 			<!-- <p>등록된 게시물이 존재하지 않습니다.</p> -->
 			
 			<p>
-			<%
+			<%-- <%
 			if (dataCount != 0)
 			{
 			%>
@@ -162,14 +183,13 @@
 				등록된 게시물이 존재하지 않습니다.
 			<%
 			}
-			%>
+			%> --%>
 			</p>
 			
 		</div><!-- #footer -->
 		
 	</div><!-- #bbsList_list -->
 		
-
 </div><!-- #bbsList -->
 
 

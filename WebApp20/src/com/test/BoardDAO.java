@@ -84,6 +84,7 @@ public class BoardDAO
 	
 	// DB 레코드의 갯수를 가져오는 메소드 정의 (지금은 전체~!!!)
 	// → 검색 기능을 작업하게 되면... 수정하게 될 메소드 (검색 대상~!!!)
+	/*
 	public int getDataCount()
 	{
 		int result = 0;
@@ -109,11 +110,51 @@ public class BoardDAO
 		
 		return result;
 	}
+	*/
+	
+	
+	// check~!!!
+	// 검색기능을 추가~!!!  제목,작성자,내용  입력값
+	public int getDataCount(String searchKey, String searchValue)
+	{
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		try
+		{
+			// check~!!!
+			searchValue = "%" + searchValue + "%";
+			
+			sql = "SELECT COUNT(*) AS COUNT"
+				+ " FROM TBL_BOARD"
+				+ " WHERE " + searchKey + " LIKE ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchValue);
+			
+			rs = pstmt.executeQuery();
+			if (rs.next())
+				result = rs.getInt("COUNT");
+			rs.close();
+			pstmt.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
+		return result;
+	}// end getDataCount(String searchKey, String searchValue)
+	
 	
 	
 	// 특정 영역의(시작번호 ~ 끝번호) 게시물의 목록을
 	// 읽어오는 메소드 정의
 	// → 검색 기능을 작업하게 되면... 수정하게 될 메소드 (검색 대상~!!!)
+	/*
 	public List<BoardDTO> getLists(int start, int end) throws SQLException
 	{
 		List<BoardDTO> result = new ArrayList<BoardDTO>();
@@ -125,16 +166,76 @@ public class BoardDAO
 		
 		try
 		{
-			sql = "SELECT * FROM ( SELECT ROWNUM RNUM, DATA.*"
-					+ " FROM ( SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD')"
-					+ " AS CREATED FROM TBL_BOARD ORDER BY NUM DESC ) DATA )"
+			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED"
+					+ " FROM ( SELECT ROWNUM RNUM, DATA.*"
+					+ " FROM ( SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED"
+					+ " FROM TBL_BOARD ORDER BY NUM DESC ) DATA )"
 					+ " WHERE RNUM>=? AND RNUM<=?";
 			
+			//System.out.println(sql);
+						
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
 			
-			rs = pstmt.executeQuery(sql);
+			rs = pstmt.executeQuery(); // 괄호 안에 sql 쓰면 안 돼 ㅠㅠㅠㅠ
+			
+			while (rs.next())
+			{
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setNum(rs.getInt("NUM"));
+				dto.setName(rs.getString("NAME"));
+				dto.setSubject(rs.getString("SUBJECT"));
+				dto.setHitCount(rs.getInt("HITCOUNT"));
+				dto.setCreated(rs.getString("CREATED"));
+				
+				result.add(dto);
+			}
+			rs.close();
+			pstmt.close();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		
+		return result;
+	}
+	*/
+	
+	
+	// check~!!!
+	// 검색 기능 추가~!!!
+	public List<BoardDTO> getLists(int start, int end, String searchKey, String searchValue) throws SQLException
+	{
+		List<BoardDTO> result = new ArrayList<BoardDTO>();
+		
+		String sql = "";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try
+		{
+			// check~!!!
+			searchValue = "%" + searchValue + "%";	// 추가 구문~!!!
+			
+			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED"
+					+ " FROM ( SELECT ROWNUM RNUM, DATA.*"
+					+ " FROM ( SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') AS CREATED"
+					+ " FROM TBL_BOARD WHERE " + searchKey + " Like ?" + " ORDER BY NUM DESC ) DATA )"
+					+ " WHERE RNUM>=? AND RNUM<=?";
+			
+			//System.out.println(sql);
+						
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchValue);		// 추가 구문~!!!
+			pstmt.setInt(2, start);					// 인덱스 변경
+			pstmt.setInt(3, end);					// 인덱스 변경
+			
+			
+			rs = pstmt.executeQuery(); // 괄호 안에 sql 쓰면 안 돼 ㅠㅠㅠㅠ
 			
 			while (rs.next())
 			{
@@ -173,7 +274,7 @@ public class BoardDAO
 			sql = "UPDATE TBL_BOARD SET HITCOUNT = HITCOUNT + 1 WHERE NUM=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			result = pstmt.executeUpdate(sql);
+			result = pstmt.executeUpdate();
 			
 			pstmt.close();
 		}
