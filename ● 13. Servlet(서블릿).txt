@@ -68,5 +68,3 @@
 
    - 사용자 최초 요청 페이지
      http://localhost:8090/WebApp21/test2.jsp
-
-   
