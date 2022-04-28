@@ -1,12 +1,35 @@
 @charset "UTF-8";
 
-*
+
+/* body
 {
-	font-family: 맑은고딕;
-	color: black;
+	width: 1000px;
+	height: 1000px;
+	background-color: #FFD8D8;
 }
 
-body, p, div, span, input, table, th, td, select
+*
+{
+	font-family: 나눔고딕코딩;
+	font-weight: bold;		
+}
+
+.btn
+{
+	background-color: #FAECC5;
+} */
+
+
+
+/* 수업 */
+*
+{
+	
+	font-family: 맑은 고딕;
+	color: #ff80c0;
+}
+
+body, p , div, span, input, table, th, td, select
 {
 	font-size: 18px;
 }
@@ -15,8 +38,7 @@ body, p, div, span, input, table, th, td, select
 {
 	border: 1px solid gray;
 	border-radius: 3px;
-}                          
-
+}
 .table
 {
 	border-collapse: collapse;
@@ -31,21 +53,28 @@ body, p, div, span, input, table, th, td, select
 	padding: 3px;
 	line-height: 150%;
 }
-
 .table th
 {
 	font-weight: bold;
-	background-color: #eeeeee;
+	background-color: #ffcae4;
+	
 }
-
 .btn
 {
 	font-weight: bold;
+	background-color: #fefafe;
+	
 }
-
 .btn:hover
 {
-	color: white;
-	background-color: #787;
+	color: #e25a9e;
+	
+	background-color: #f8efd1;
 }
+
+
+
+
+
+
 

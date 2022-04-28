@@ -2,4 +2,5 @@
  * alertTest.js
  */
 
+
 alert(message);

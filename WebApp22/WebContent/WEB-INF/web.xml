@@ -13,8 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<!-- 서블릿 필수사항 -->
-	<!-- 
+	<!-- 	
 	<servlet>
 		<servlet-name></servlet-name>
 		<servlet-class></servlet-class>
@@ -23,7 +22,6 @@
 	<servlet-mapping>
 		<servlet-name></servlet-name>
 		<url-pattern></url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 	-->
-
 </web-app>
