@@ -1,48 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
-		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.FileSystem"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.Preferences"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
-			<item value="org.eclipse.ui.Basic"/>
-		</list>
-		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
 	</section>
 	<section name="PreferencesImportWizard">
-		<item key="" value="C:\Downloads\12_Web_epf\12_Web_epf\WebStandard.epf"/>
+		<item key="" value="C:\Users\mj070\Downloads\WebStandard.epf"/>
 		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
-			<item value="C:\Downloads\12_Web_epf\12_Web_epf\WebStandard.epf"/>
-			<item value="C:\Downloads\11_JDBC_epf\jdbcStandard.epf"/>
-		</list>
-	</section>
-	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.css.ui.internal.wizard.NewCSSWizard"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.wst.jsdt.ui.java"/>
-			<item value="org.eclipse.wst.web.ui"/>
-		</list>
-	</section>
-	<section name="org.eclipse.ui.preferences.keysPreferencePage">
-		<item key="actionSetFilter" value="true"/>
-		<item key="internalFilter" value="true"/>
-		<item key="uncategorizedFilter" value="true"/>
-	</section>
-	<section name="FileSystemExportWizard">
-		<item key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>
-		<item key="WizardFileSystemResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="false"/>
-		<item key="WizardFileSystemResourceExportPage1.STORE_RESOLVE_LINKED_RESOURCES_ID" value="false"/>
-		<list key="WizardFileSystemResourceExportPage1.STORE_DESTINATION_NAMES_ID">
-			<item value="C:\Downloads\13_Web_Expert"/>
-		</list>
-	</section>
-	<section name="PreferencesExportWizard">
-		<item key="" value="C:\Downloads\12_Web_epf\WebStandard.epf"/>
-		<item key="WizardPreferencesExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>
-		<item key="WizardPreferencesExportPage1.EXPORT_ALL_PREFERENCES_ID" value="true"/>
-		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
-			<item value="C:\Downloads\12_Web_epf\WebStandard.epf"/>
+			<item value="C:\Users\mj070\Downloads\WebStandard.epf"/>
 		</list>
 	</section>
 </section>
