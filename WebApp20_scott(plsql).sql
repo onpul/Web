@@ -56,7 +56,7 @@ BEGIN
             V_PWD := 'java002$';
             V_CONTENT := '¸¼Àº ³¯¾¾¿Í °ü·ÃÇÑ ³»¿ë¹° ÀÛ¼º';
             V_IPADDR := '211.238.142.151';
-            V_NAME := 'ÃÖ';
+            V_NAME := '±è';
             V_SUBJECT := '³¯¾¾';
         END IF;
         

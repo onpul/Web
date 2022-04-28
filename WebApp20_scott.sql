@@ -175,4 +175,7 @@ WHERE SUBJECT LIKE '%음식%';
 SELECT COUNT(*) AS COUNT FROM TBL_BOARD WHERE SUBJECT LIKE '%음식%'
 ;
 
-
+SELECT *
+FROM TBL_BOARD
+ORDER BY NUM DESC;
+-- 지금은 패스워드를 확인할 수 있지만 실무에서는 암호화 처리를 해야 한다.
