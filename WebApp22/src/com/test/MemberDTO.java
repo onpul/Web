@@ -3,6 +3,19 @@ package com.test;
 public class MemberDTO
 {
 	private String name, tel, addr;
+	
+	// default 형태의 생성자
+	public MemberDTO()
+	{
+		
+	}
+	
+	public MemberDTO(String name, String tel, String addr)
+	{
+		this.name = name;
+		this.tel = tel;
+		this.addr = addr;
+	}
 
 	public String getName()
 	{
