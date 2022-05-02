@@ -25,14 +25,19 @@
 		<table class="table" style="text-align: center;">
 			<tr>
 				<th>이름</th>
+				<c:set var="i" value="1"></c:set><!-- check~!!! -->
 				<c:forEach var="a" begin="1" end="5" step="1">
-					<td><input type="text" name="name${a }"/></td>
+					<%-- <td><input type="text" name="name${a }"/></td> --%>
+					<td><input type="text" name="name${i }"/></td>
+					<c:set var="i" value="${i+1}"></c:set>
 				</c:forEach>
 			</tr>
 			<tr>
 				<th>전화번호</th>
+				<c:set var="i" value="1"></c:set>
 				<c:forEach var="a" begin="1" end="5" step="1">
-					<td><input type="text" name="tel${a }"/></td>
+					<td><input type="text" name="tel${i }"/></td>
+					<c:set var="i" value="${i+1}"></c:set>
 				</c:forEach>
 			</tr>
 			<tr>

@@ -14,19 +14,33 @@
 	//                      MemberDTO
 	List<MemberDTO> lists = new ArrayList<MemberDTO>();
 
-	request.getParameter("name1");
+	for(int i=1; i<=5; i++)
+	{
+		String name = request.getParameter("name"+i);
+		String tel = request.getParameter("tel"+i);
+		String addr = request.getParameter("addr"+i);
+		
+		/* 
+		MemberDTO ob = new MemberDTO(name, tel, addr);
+		lists.add(ob);
+		*/
+		
+		MemberDTO ob = new MemberDTO(
+				request.getParameter("name"+i)
+			  , request.getParameter("tel"+i)
+			  , request.getParameter("addr"+i) );
+		
+		lists.add(ob);
+	}
+
+	//MemberDTO ob = new MemberDTO("테스트", "테스트", "테스트");
+	
+	session.setAttribute("lists", lists);
+	// request.setAttribute
 
 	
 	// MemberList.jsp 를 요청할 수 있도록 안내
+	//response.sendRedirect("MemberList.jsp");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=cp %>/css/main.css">
-</head>
-<body>
 
-</body>
-</html>
+<jsp:forward page="MemberList.jsp"></jsp:forward>
