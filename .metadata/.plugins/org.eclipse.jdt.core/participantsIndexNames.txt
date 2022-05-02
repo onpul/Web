@@ -3,18 +3,31 @@ C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2269761099.ind
 \WebApp19\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1836983850.index
 \WebApp13\src
+<<<<<<< HEAD
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\676038847.index
 \WebApp06\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1607817807.index
 \WebApp05\src
+=======
+>>>>>>> af9d1019cf5ea436a9328acb4d673a4086475532
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\450950362.index
 \WebApp10\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1016059003.index
 \WebApp21\src
+<<<<<<< HEAD
+=======
+C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2754388843.index
+\WebApp24\src
+>>>>>>> af9d1019cf5ea436a9328acb4d673a4086475532
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3295680032.index
 \WebApp04\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\485261860.index
 \WebApp18\src
+<<<<<<< HEAD
+=======
+C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3407952446.index
+\WebApp22_backup\src
+>>>>>>> af9d1019cf5ea436a9328acb4d673a4086475532
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3501476580.index
 \WebApp23\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1853365589.index
@@ -33,8 +46,11 @@ C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1524570062.ind
 \WebApp09\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4141574725.index
 \WebApp12\src
+<<<<<<< HEAD
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3018769616.index
 \WebApp07\src
+=======
+>>>>>>> af9d1019cf5ea436a9328acb4d673a4086475532
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1259406987.index
 \WebApp22\src
 C:\WebStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2185462730.index
