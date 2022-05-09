@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest02.html</title>
+<style type="text/css">
+	.item
+	{
+		border: solid 2px red;
+		color: white;
+		background: black;
+	}
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<!-- 얘를 기재하면 스크립트에서 제이쿼리 함수를 쓸 수 있음 -->
+<script type="text/javascript">
+	
+	/*
+	function test()
+	{
+		alert("확인");
+		var a = 10;
+	}
+	*/
+	// 사용자에 의해 호출되게끔 해야 한다.
+	// onclick 처럼...
+	
+	//jquery();
+	//jquery(document).ready();
+	//$();
+	//$(document).ready();		
+	// 같은 의미, 같은 내용이다~
+	
+	/*
+	$(document).ready(function()
+	{
+		//alert("함수 호출 확인");	// 페이지 로드하며 실행됨
+		
+		// ※ 우리가... 또는 이 페이지를 이용하는 사용자가...
+		//    뭔가 건드리지 않아도...
+		//    (즉, 특별한 이벤트를 발생시키지 않아도...)
+		//    자동으로 처리할 수 있는 영역
+	});
+	// 누가 아무것도 건들지 않아도 스크립트 엔진에 올라간다.
+	*/
+	
+	$(function()
+	{
+		//alert("함수 호출 확인");
+		
+		// ※ 우리가... 또는 이 페이지를 이용하는 사용자가...
+		//    뭔가 건드리지 않아도...
+		//    (즉, 특별한 이벤트를 발생시키지 않아도...)
+		//    자동으로 처리할 수 있는 영역
+		
+		//$("h1").click(h1이 클릭되었을 때 수행되어야 할 기능, 동작, 행위);
+		//
+		//$("h1").click(h1이 클릭되었을 때 호출되어야 할 함수);
+		//
+		//$("h1").click(이름필요없는함수정의);
+		
+		/*
+		// click() 함수는 제이쿼리에서 제공하는 것
+		$("h1").click(function()
+		{
+			//alert("클릭되었다 이놈아~~~~~~");
+			//alert( $(this).html() );
+			// 클릭 이벤트가 발생된 당사자 → 클릭된 h1
+			
+			//$(this).html("어떻게 될까요?");	// 클릭시 어떻게 될까요? 로 바뀜
+			$(this).html( $(this).html() + "♥" );		
+		});
+		// "h1"는 선택자라고 이해하면 돼.
+		*/
+		
+		/*
+		//$("h1").on("click", 기능);
+		$("h1").on("click", function()
+		{
+			//alert("클릭!!!!!");
+			//alert( $(this).html() );	// 클릭한 이름 나옴
+		});
+		// 계속 불러도 계속 동작함
+		*/
+		
+		/*
+		$("h1").one("click", function()
+		{
+			//alert("클릭~!!!!!!!!!!!");
+			//alert( $(this).html() );
+			
+			//$(this).html(기능);
+			$(this).html(function(index, html)
+			{
+				//alert(html);	// 이름
+				//alert(index);	// 0
+				return html + "♡";
+			});
+		});
+		// 계속 눌러도 한 번만 동작함
+		*/
+		
+		// JSON 표기법
+		//{속성명:속성값, 속성명:속성값, 속성명:속성값, ...}
+		
+		//$("h1").on({이벤트:기능, 이벤트:기능});
+		
+		/*
+		$("h1").on(
+		{	
+			이벤트:기능, 이벤트:기능
+		});
+		*/
+		
+		/*
+		$("h1").on(
+		{	
+			// mouseenter : 어쩌어찌하겠다. 		→ 마우스 진입할 때
+			// mouseleave : 저찌저찌하겠다.         → 마우스 빠져나올 때
+			mouseenter:function() { $(this).addClass("item"); }
+		    , mouseleave:function() { $(this).removeClass("item"); }
+		});
+		*/
+		
+		// mouseenter, mouseleave
+		$("h1").hover(function()
+		{
+			$(this).addClass("item");
+		}, function()
+		{
+			$(this).removeClass("item");
+		});
+		
+	});
+	// 위와 같은 기능을 수행한다.
+	// 엔진이 시동을 걸 때 기본으로 장착되는 함수
+	
+</script>
+
+</head>
+<body>
+
+<!-- <h1 onclick="test()">박현수</h1> -->
+<!-- <h1 class="item">우수정</h1> -->
+
+<h1>박현수</h1>
+<h1>우수정</h1>
+<h1>김태형</h1>
+<h1>이아린</h1>
+
+</body>
+</html>
