@@ -24,9 +24,13 @@
 /* 수업 */
 *
 {
-	
 	font-family: 맑은 고딕;
 	color: black;
+}
+
+body
+{
+	background-color: #eeeeee;
 }
 
 body, p , div, span, input, table, th, td, select
