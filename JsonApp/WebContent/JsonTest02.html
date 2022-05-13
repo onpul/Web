@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest02.html</title>
+<script type="text/javascript">
+	
+	/* var myJsonObject = {"test" : "hello"} */ // 이런 형태는 JSON!
+	var myJsonObject = 
+	{
+		"test" : "hello"
+		/* "test" : "new test" */
+	}	
+	
+</script>
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click1" onclick="alert(myJsonObject.test)"/>
+	<!-- hello -->
+	
+	<input type="button" value="click2" 
+	onclick="myJsonObject2.test='new test'; alert(myJsonObject2.test)"/>
+	<!-- new test -->
+</form>
+
+</body>
+</html>

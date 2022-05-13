@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest05.html</title>
+<script type="text/javascript">
+
+	var myJsonObject5 = 
+	{
+		"test" : function(args)
+		{
+			alert("Method test : " + args);
+		}
+	}
+	
+	var t = myJsonObject5.test;
+	/* var t = myJsonObject5.test(data); */ // 이거랑 다름
+	
+</script>
+</head>
+<body>
+
+<form action="">
+	
+	<input type="button" value="click1" onclick="t('minsung')"/>
+	<!-- Method test : minsung -->
+	
+	<input type="button" value="click2" 
+		onclick="eval('var a=' + myJsonObject5.test); a('moonjung')"/>
+	<!-- Method test : moonjung -->
+	
+	<input type="button" value="click3"
+		onclick="eval( '(' + myJsonObject5.test + ')(\'sunha\')' )"/>
+	<!-- myJsonObject5.test('sunha') --> <!-- 이거랑 같은 거 -->
+	<!-- Method test : sunha -->
+	
+</form>
+
+</body>
+</html>
