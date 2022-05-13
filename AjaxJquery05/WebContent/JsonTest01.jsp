@@ -22,7 +22,7 @@
 			//alert("확");
 			
 			var params = "name=" + $.trim($("#name").val())
-				+ "&content=" + $.trim($("#content").val())
+				+ "&content=" + $.trim($("#content").val());
 				
 			$.ajax(
 			{

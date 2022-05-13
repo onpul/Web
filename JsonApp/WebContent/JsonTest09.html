@@ -15,6 +15,16 @@
 		}
 	}
 
+	// 문정 테스트
+	
+	var test =
+	[
+		{"num":"1", "name":"임소민1", "content":"안녕하세요1"}
+		,{"num":"2", "name":"임소민2", "content":"안녕하세요2"}
+		,{"num":"3", "name":"임소민3", "content":"안녕하세요3"}
+		,{"num":"4", "name":"임소민4", "content":"안녕하세요4"}
+		,{"num":"5", "name":"임소민5", "content":"안녕하세요5"}
+	]
 </script>
 </head>
 <body>
@@ -41,8 +51,11 @@
 	<input type="button" value="click6" onclick="alert(myJsonObject9.superman.hobby[0])" />
 	<!-- song -->
 	
+	
 	<input type="button" value="click7" onclick="alert(typeof myJsonObject9.superman.hobby[0])" />
 	<!-- string -->
+	
+	<input type="button" value="test" onclick="alert(test[0].name)" />
 </form>
 
 </body>

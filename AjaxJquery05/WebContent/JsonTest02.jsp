@@ -8,80 +8,100 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JsonTest02.jsp</title>
+<title>JsonTest01.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 	
-		$(function()
+	$(function()
+	{
+		$("#sendBtn").click(function()
 		{
-			$("#sendBtn").click(function()
+			//테스트
+			//alert("확");
+			
+			var params = "name=" + $.trim($("#name").val())
+				+ "&content=" + $.trim($("#content").val());
+				
+			$.ajax(
 			{
-				//테스트
-				//alert("확");
-				
-				var params = "name=" + $.trim($("#name").val()) 
-					+ "&content=" + $.trim($("#content").val());
-				
-				//alert("param 부분 완료");
-				
-				$.ajax(
+				type:"POST"
+				, url:"JsonTest02_ok.jsp"
+				, data:params
+				, dataType:"json"			// check~!!!
+				, success:function(jsonObj)
 				{
-					type:"POST"
-					, url:"JsonTest02_ok.jsp"
-					, data:params
-					, dataType:"json"
-					, success:function(jsonObj)
+					var out = "";
+					
+					/*
+					var num = jsonObj.num;
+					var name = jsonObj.name;
+					var content = jsonObj.content;
+					
+					out += "<br>=============================";
+					out += "<br> 번호 : " + num;
+					out += "<br> 이름 : " + name;
+					out += "<br> 내용 : " + content;
+					out += "<br>=============================<br>";
+					
+					$("#result").html(out);
+					
+					$("#name").val("");
+					$("#content").val("");
+					$("#name").focus();
+					*/
+					
+					// 수신된 jsonObj 는 json 배열 객체
+					// → 배열방만큼 반복문 순환
+					for (var idx=0; idx<jsonObj.length; idx++)
 					{
-						//alert("success 부분 완료");
-						var out = "";
-						
-						var num = jsonObj.num;
-						var name = jsonObj.name;
-						var content = jsonObj.content;
+						var num = jsonObj[idx].num;
+						var name = jsonObj[idx].name;
+						var content = jsonObj[idx].content;
 						
 						out += "<br>=============================";
-						out += "<br>번호 : " + num;
-						out += "<br>이름 : " + name;
-						out += "<br>내용 : " + content;
+						out += "<br> 번호 : " + num;
+						out += "<br> 이름 : " + name;
+						out += "<br> 내용 : " + content;
 						out += "<br>=============================<br>";
-						
-						$("#result").html(out);
-						
-						$("#name").val("");
-						$("#content").val("");
-						
-						$("#name").focus();
 					}
-					, beforeSend:showRequest
-					, error:function(e)
-					{
-						alert(e.responseText);
-					}
-				});
+					
+					$("#result").html(out);
+					
+					$("#name").val("");
+					$("#content").val("");
+					$("#name").focus();
+					
+				}
+				, beforeSend:showRequest
+				, error:function(e)
+				{
+					alert(e.responseText);
+				}
 			});
 		});
-		
-		function showRequest()
-		{
-			if(!$.trim($("#name").val()))
-			{	
-				alert("이름을 입력하세요.");
-				$("#name").focus();
-				
-				return false;
-			}
-			if(!$.trim($("#content").val()))
-			{
-				alert("내용을 입력하세요.");
-				$("#content").focus();
-				
-				return false;
-			}
+	});
+	
+	function showRequest()
+	{
+		if(!$.trim($("#name").val()))
+		{	
+			alert("이름을 입력하세요.");
+			$("#name").focus();
 			
-			return true;
+			return false;
+		}
+		if(!$.trim($("#content").val()))
+		{
+			alert("내용을 입력하세요.");
+			$("#content").focus();
+			
+			return false;
 		}
 		
+		return true;
+	}
 	
 </script>
 </head>

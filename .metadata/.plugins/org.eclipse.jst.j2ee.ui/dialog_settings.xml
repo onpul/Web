@@ -6,18 +6,19 @@
 		<item value="NULL_RUNTIME"/>
 	</list>
 	<list key="J2EE_IMPORT_null">
-		<item value="C:\Users\mj070\Downloads\AjaxApp (1).war"/>
-		<item value="C:\Users\mj070\Downloads\JQueryApp.war"/>
-		<item value="C:\Users\mj070\Downloads\WebApp24.war"/>
-		<item value="C:\Users\mj070\Downloads\WebApp23.war"/>
-		<item value="C:\Users\mj070\Downloads\WebApp22.war"/>
-	</list>
-	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="C:\Users\mj070\Downloads\JsonApp.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxJquery04.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxJquery03.war"/>
 		<item value="C:\Users\mj070\Downloads\AjaxJquery02.war"/>
 		<item value="C:\Users\mj070\Downloads\AjaxJquery01.war"/>
 		<item value="C:\Users\mj070\Downloads\AjaxApp.war"/>
-		<item value="C:\Users\mj070\Downloads\JQueryApp.war"/>
-		<item value="C:\Users\mj070\Downloads\EmmetApp.war"/>
-		<item value="C:\Users\mj070\Downloads\WebApp28.war"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="C:\Users\mj070\Downloads\JsonApp.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxJquery05.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxJquery04.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxJquery02.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxJquery01.war"/>
+		<item value="C:\Users\mj070\Downloads\AjaxApp.war"/>
 	</list>
 </section>
